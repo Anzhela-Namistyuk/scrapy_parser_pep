@@ -1,3 +1,4 @@
+import csv
 from collections import Counter
 import datetime as dt
 from pathlib import Path
@@ -23,6 +24,6 @@ class PepParsePipeline:
         total = sum(self.count_status.values())
         with open(filename, mode='w', encoding='utf-8') as f:
             f.write('Статус,Количество\n')
-            for status, count in self.count_status.items():
-                f.write(f'{status},{count}\n')
+            writer = csv.writer(f)
+            writer.writerows(self.count_status.items())
             f.write(f'Total,{total}\n')
