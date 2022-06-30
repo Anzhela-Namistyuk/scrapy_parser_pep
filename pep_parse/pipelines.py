@@ -1,4 +1,3 @@
-import csv
 from collections import Counter
 import datetime as dt
 from pathlib import Path
